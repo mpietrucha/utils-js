@@ -1,4 +1,5 @@
 import { useTypeEquals } from '@/composables/useBuilder'
+import { defineProperty } from '@/composables/useObject'
 import { useFunction, useObject } from '@/composables/useType'
 import { isUndefined } from '@/type'
 
@@ -27,7 +28,7 @@ export const wrap = value => {
 export const set = (source, property, value, options) => {
     source = wrap(source)
 
-    return Object.defineProperty(source, property, { ...options, value })
+    return defineProperty(source, property, { ...options, value })
 }
 
 export const has = (source, property) => property in source

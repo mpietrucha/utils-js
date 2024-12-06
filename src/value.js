@@ -1,3 +1,5 @@
+import * as Closure from '@/closure'
+
 export {
     useConfirm as confirm,
     useEquals as equals,
