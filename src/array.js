@@ -12,20 +12,16 @@ export const isNative = useRescue(isArray)
 
 export const is = value => isNative(value) || isTag(value)
 
-export const create = (...values) => values
-
-export const flatten = (...values) => values.flat(Infinity)
-
 export const wrap = value => {
     if (is(value)) {
         return value
     }
 
     if (isUndefined(value)) {
-        return create()
+        return []
     }
 
-    return create(value)
+    return [value]
 }
 
 export const append = (value, ...append) => {
@@ -42,4 +38,16 @@ export const prepend = (value, ...prepend) => {
     value.unshift(...prepend)
 
     return value
+}
+
+export const flat = (value, deep = Infinity) => {
+    value = wrap(value)
+
+    return value.flat(deep)
+}
+
+export const join = (...values) => {
+    const value = values.map(wrap)
+
+    return flat(value)
 }

@@ -34,7 +34,7 @@ export const wrap = value => {
 export const assign = (value, options) => {
     const { bind, append, prepend, parameters } = Object.wrap(options)
 
-    return wrap(value).bind(bind, ...Array.flatten(prepend, value, append))
+    return wrap(value).bind(bind, ...Array.join(prepend, parameters, append))
 }
 
 export const get = (value, ...parameters) => {

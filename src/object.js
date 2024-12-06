@@ -9,20 +9,16 @@ export const isType = useTypeEquals(...types)
 
 export const is = isType
 
-export const create = (property, value) => {
+export const wrap = (value, property) => {
+    if (is(value)) {
+        return value
+    }
+
     if (isUndefined(property)) {
         return {}
     }
 
     return { [property]: value }
-}
-
-export const wrap = value => {
-    if (is(value)) {
-        return value
-    }
-
-    return create(property, value)
 }
 
 export const set = (source, property, value, options) => {
@@ -31,22 +27,22 @@ export const set = (source, property, value, options) => {
     return defineProperty(source, property, { ...options, value })
 }
 
-export const has = (source, property) => property in source
+export const has = (source, property) => property in wrap(source)
 
-export const value = (source, property, fallack) => {
+export const value = (source, property, missing) => {
     source = wrap(source)
 
-    const { [property]: response = fallack } = source
+    const { [property]: value = missing } = source
 
-    return response
+    return value
 }
 
-export const get = (source, property, fallack) => {
-    if (missing(source, property)) {
-        return fallack
+export const get = (source, property, missing) => {
+    if (has(source, property)) {
+        return value(source, property)
     }
 
-    return value(source, property)
+    return missing
 }
 
 export const blank = (source, property) => {

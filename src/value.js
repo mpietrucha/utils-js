@@ -1,9 +1,11 @@
 import * as Closure from '@/closure'
+import { useIdentity } from '@/composables/useContext'
+
+export const identity = useIdentity
 
 export {
     useConfirm as confirm,
     useEquals as equals,
-    useIdentity as identity,
     useNegate as negate,
     useNoop as noop,
 } from '@/composables/useContext'
