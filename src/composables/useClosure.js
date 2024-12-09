@@ -1,59 +1,60 @@
-import useContext from '@/composables/useContext'
+import useValue from '@/composables/useValue'
 
 export const useNoop = value => {
-    const { useNoop } = useContext()
+    const { useNoop } = useValue()
 
     return () => useNoop()
 }
 
 export const useIdentity = value => {
-    const { useIdentity } = useContext()
+    const { useIdentity } = useValue()
 
     return () => useIdentity(value)
 }
 
 export const useNegate = value => {
-    const { useNegate } = useContext()
+    const { useNegate } = useValue()
 
     return () => useNegate(value)
 }
 
 export const useConfirm = value => {
-    const { useConfirm } = useContext()
+    const { useConfirm } = useValue()
 
     return () => useConfirm(value)
 }
 
-export const useRescue = value => {
-    const { useRescue } = useContext()
-
-    return (...parameters) => useRescue(value, ...parameters)
-}
-
 export const useEquals = (...values) => {
-    const { useEquals } = useContext()
+    const { useEquals } = useValue()
 
     return value => useEquals(value, ...values)
 }
 
 export const useTagEquals = (...tags) => {
-    const { useTagEquals } = useContext()
+    const { useTagEquals } = useValue()
 
     return value => useTagEquals(value, ...tags)
 }
 
 export const useTypeEquals = (...types) => {
-    const { useTypeEquals } = useContext()
+    const { useTypeEquals } = useValue()
 
     return value => useTypeEquals(value, ...types)
 }
 
+export const useRescue = handler => {
+    const { useRescue } = useValue()
+
+    return (...parameters) => useRescue(handler, ...parameters)
+}
+
 export default () => ({
+    useNoop,
     useIdentity,
-    useConfirm,
     useNegate,
-    useRescue,
+    useConfirm,
     useEquals,
     useTagEquals,
     useTypeEquals,
+    useRescue,
 })

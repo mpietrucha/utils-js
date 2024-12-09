@@ -1,3 +1,4 @@
+export * as Rescue from '@/rescue'
 export * as Tag from '@/tag'
 export * as Type from '@/type'
 export * as Value from '@/value'

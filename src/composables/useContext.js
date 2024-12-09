@@ -1,7 +1,7 @@
-import useObject from '@/composables/useObject'
-import useRescue from '@/composables/useRescue'
+import { usePrototype } from '@/composables/useObject'
+import { useValue } from '@/composables/useRescue'
 
-export { useRescue }
+export const useRescue = useValue
 
 export const useNoop = () => {}
 
@@ -32,9 +32,9 @@ export const useTypeEquals = (value, ...types) => {
 }
 
 export const useTag = value => {
-    const { toString } = useObject()
+    const { toString } = usePrototype()
 
-    const tag = useRescue(toString, value)
+    const tag = useRescue(() => toString.call(value))
 
     if (tag) {
         return tag
@@ -50,10 +50,11 @@ export const useTagEquals = (value, ...tags) => {
 }
 
 export default () => ({
-    useIdentity,
-    useConfirm,
-    useNegate,
     useRescue,
+    useNoop,
+    useIdentity,
+    useNegate,
+    useConfirm,
     useEquals,
     useType,
     useTypeEquals,

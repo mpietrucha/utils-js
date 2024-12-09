@@ -1,13 +1,9 @@
-export const value = Object
+const value = Object
 
-export const { prototype } = value
+const { prototype } = value
 
-export const toString = value => {
-    const { toString } = prototype
+export const useValue = () => value
 
-    return toString.call(value)
-}
+export const usePrototype = () => prototype
 
-export const { defineProperty } = value
-
-export default () => ({ value, toString, defineProperty })
+export default () => ({ useValue, usePrototype })

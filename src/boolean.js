@@ -1,4 +1,4 @@
-import { useEquals, useTagEquals } from '@/composables/useBuilder'
+import { useEquals, useTagEquals } from '@/composables/useClosure'
 import { useBoolean } from '@/composables/useTag'
 import { useFalse, useTrue } from '@/composables/useValue'
 

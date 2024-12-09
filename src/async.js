@@ -1,4 +1,4 @@
-import { useTagEquals } from '@/composables/useBuilder'
+import { useTagEquals } from '@/composables/useClosure'
 import { useAsync } from '@/composables/useTag'
 
 export const tag = useAsync()

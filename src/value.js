@@ -1,5 +1,5 @@
 import * as Closure from '@/closure'
-import { useIdentity } from '@/composables/useContext'
+import { useIdentity } from '@/composables/useValue'
 
 export const identity = useIdentity
 
@@ -8,7 +8,8 @@ export {
     useEquals as equals,
     useNegate as negate,
     useNoop as noop,
-} from '@/composables/useContext'
+    useRescue as rescue,
+} from '@/composables/useValue'
 
 export const assign = (value, options) => {
     if (Closure.is(value)) {

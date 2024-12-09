@@ -1,4 +1,4 @@
-import { useEquals } from '@/composables/useBuilder'
+import { useEquals } from '@/composables/useClosure'
 import { useFunction } from '@/composables/useTag'
 
 export const tag = useFunction()

@@ -1,4 +1,4 @@
-import { useEquals } from '@/composables/useBuilder'
+import { useEquals } from '@/composables/useClosure'
 import { useTrue } from '@/composables/useValue'
 
 export const value = useTrue()

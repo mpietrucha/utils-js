@@ -1,4 +1,4 @@
-import { useRescue, useTagEquals } from '@/composables/useBuilder'
+import { useRescue, useTagEquals } from '@/composables/useClosure'
 import { useArray } from '@/composables/useTag'
 import { isUndefined } from '@/type'
 

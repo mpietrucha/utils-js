@@ -1,4 +1,4 @@
-import { useTagEquals } from '@/composables/useBuilder'
+import { useTagEquals } from '@/composables/useClosure'
 import { useGenerator } from '@/composables/useTag'
 
 export const tag = useGenerator()

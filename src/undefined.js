@@ -1,4 +1,4 @@
-import { useEquals } from '@/composables/useBuilder'
+import { useEquals } from '@/composables/useClosure'
 import { useUndefined } from '@/composables/useValue'
 
 export const value = useUndefined()

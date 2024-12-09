@@ -1,8 +1,9 @@
+export { useValue as get, useEquals as is } from '@/composables/useType'
+
 export { is as isArray } from '@/array'
 export { is as isAsync } from '@/async'
 export { is as isBoolean } from '@/boolean'
 export { is as isClosure } from '@/closure'
-export { useType as get } from '@/composables/useContext'
 export { is as isFalse } from '@/false'
 export { is as isFunction } from '@/function'
 export { is as isGenerator } from '@/generator'

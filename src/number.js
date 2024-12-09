@@ -1,4 +1,4 @@
-import { useRescue, useTagEquals } from '@/composables/useBuilder'
+import { useRescue, useTagEquals } from '@/composables/useClosure'
 import { useNumber } from '@/composables/useTag'
 
 export const { isNumber } = Number

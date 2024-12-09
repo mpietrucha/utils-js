@@ -1,6 +1,17 @@
-import { useEquals, useNoop } from '@/composables/useContext'
+import useContext from '@/composables/useContext'
 
-export { useEquals }
+export const {
+    useNoop,
+    useConfirm,
+    useEquals,
+    useIdentity,
+    useNegate,
+    useRescue,
+    useTag,
+    useTagEquals,
+    useType,
+    useTypeEquals,
+} = useContext()
 
 export const useNull = () => null
 
@@ -10,4 +21,19 @@ export const useFalse = () => false
 
 export const useUndefined = useNoop
 
-export default useEquals
+export default () => ({
+    useNoop,
+    useConfirm,
+    useEquals,
+    useIdentity,
+    useNegate,
+    useRescue,
+    useNull,
+    useTrue,
+    useFalse,
+    useUndefined,
+    useType,
+    useTag,
+    useTagEquals,
+    useTypeEquals,
+})

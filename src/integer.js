@@ -1,4 +1,4 @@
-import { useRescue } from '@/composables/useBuilder'
+import { useRescue } from '@/composables/useClosure'
 import { is as isNumber } from '@/number'
 
 export const { isInteger } = Number

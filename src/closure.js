@@ -1,5 +1,5 @@
 import * as Array from '@/array'
-import { useIdentity, useTagEquals } from '@/composables/useBuilder'
+import { useIdentity, useTagEquals } from '@/composables/useClosure'
 import {
     useAsync,
     useFunction,
@@ -8,14 +8,14 @@ import {
 } from '@/composables/useTag'
 import * as Object from '@/object'
 
+export const identity = useIdentity
+
 export {
     useConfirm as confirm,
     useNegate as negate,
     useNoop as noop,
     useRescue as rescue,
-} from '@/composables/useBuilder'
-
-export const identity = useIdentity
+} from '@/composables/useClosure'
 
 export const tags = [useProxy(), useAsync(), useFunction(), useGenerator()]
 
