@@ -14,7 +14,6 @@ export {
     useConfirm as confirm,
     useNegate as negate,
     useNoop as noop,
-    useRescue as rescue,
 } from '@/composables/useClosure'
 
 export const tags = [useProxy(), useAsync(), useFunction(), useGenerator()]

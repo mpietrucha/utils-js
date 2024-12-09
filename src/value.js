@@ -10,7 +10,6 @@ export {
     useEquals as equals,
     useNegate as negate,
     useNoop as noop,
-    useRescue as rescue,
 } from '@/composables/useValue'
 
 export const assign = (value, options) => {
