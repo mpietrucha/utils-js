@@ -1,16 +1,16 @@
 import useContext from '@/composables/useContext'
 
 export const {
+    useRescue,
     useNoop,
-    useConfirm,
-    useEquals,
     useIdentity,
     useNegate,
-    useRescue,
-    useTag,
-    useTagEquals,
+    useConfirm,
+    useEquals,
     useType,
     useTypeEquals,
+    useTag,
+    useTagEquals,
 } = useContext()
 
 export const useNull = () => null
@@ -22,18 +22,18 @@ export const useFalse = () => false
 export const useUndefined = useNoop
 
 export default () => ({
+    useRescue,
     useNoop,
-    useConfirm,
-    useEquals,
     useIdentity,
     useNegate,
-    useRescue,
+    useConfirm,
+    useEquals,
+    useType,
+    useTypeEquals,
+    useTag,
+    useTagEquals,
     useNull,
     useTrue,
     useFalse,
     useUndefined,
-    useType,
-    useTag,
-    useTagEquals,
-    useTypeEquals,
 })

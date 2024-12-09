@@ -32,9 +32,11 @@ export const wrap = value => {
 }
 
 export const assign = (value, options) => {
+    value = wrap(value)
+
     const { bind, append, prepend, parameters } = Object.wrap(options)
 
-    return wrap(value).bind(bind, ...Array.join(prepend, parameters, append))
+    return value.bind(bind, ...Array.join(prepend, parameters, append))
 }
 
 export const get = (value, ...parameters) => {

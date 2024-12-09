@@ -49,5 +49,5 @@ export const flat = (value, deep = Infinity) => {
 export const join = (...values) => {
     const value = values.map(wrap)
 
-    return flat(value)
+    return flat(value, 1)
 }

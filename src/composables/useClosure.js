@@ -1,6 +1,12 @@
 import useValue from '@/composables/useValue'
 
-export const useNoop = value => {
+export const useRescue = value => {
+    const { useRescue } = useValue()
+
+    return (...parameters) => useRescue(handler, ...parameters)
+}
+
+export const useNoop = () => {
     const { useNoop } = useValue()
 
     return () => useNoop()
@@ -30,31 +36,25 @@ export const useEquals = (...values) => {
     return value => useEquals(value, ...values)
 }
 
-export const useTagEquals = (...tags) => {
-    const { useTagEquals } = useValue()
-
-    return value => useTagEquals(value, ...tags)
-}
-
 export const useTypeEquals = (...types) => {
     const { useTypeEquals } = useValue()
 
     return value => useTypeEquals(value, ...types)
 }
 
-export const useRescue = handler => {
-    const { useRescue } = useValue()
+export const useTagEquals = (...tags) => {
+    const { useTagEquals } = useValue()
 
-    return (...parameters) => useRescue(handler, ...parameters)
+    return value => useTagEquals(value, ...tags)
 }
 
 export default () => ({
+    useRescue,
     useNoop,
     useIdentity,
     useNegate,
     useConfirm,
     useEquals,
-    useTagEquals,
     useTypeEquals,
-    useRescue,
+    useTagEquals,
 })

@@ -1,22 +1,31 @@
-export const useRescued = (handler, ...parameters) => {
-    try {
-        return [handler(...parameters)]
-    } catch (error) {
-        return [handler, error, parameters]
-    }
+const errors = []
+
+export const useError = error => {
+    return errors.push(error)
 }
 
-export const useValue = (handler, ...parameters) => {
-    const [value, error] = useRescued(handler, ...parameters)
+export const useLastError = (quiet = true) => {
+    const error = errors.pop()
 
-    if (error) {
+    if (!error) {
         return
     }
 
-    return value
+    if (!quiet) {
+        throw error
+    }
+
+    return error
 }
 
-export default () => ({
-    useRescued,
-    useValue,
-})
+export const useValue = (value, ...parameters) => {
+    useLastError()
+
+    try {
+        return value(...parameters)
+    } catch (error) {
+        useError(error)
+    }
+}
+
+export default () => ({ useError, useLastError, useValue })
