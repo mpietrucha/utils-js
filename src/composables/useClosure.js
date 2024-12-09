@@ -3,7 +3,7 @@ import useValue from '@/composables/useValue'
 export const useRescue = value => {
     const { useRescue } = useValue()
 
-    return (...parameters) => useRescue(handler, ...parameters)
+    return (...parameters) => useRescue(value, ...parameters)
 }
 
 export const useNoop = () => {

@@ -1,5 +1,5 @@
 import * as Array from '@/array'
-import { useIdentity, useTagEquals } from '@/composables/useClosure'
+import { useIdentity, useRescue, useTagEquals } from '@/composables/useClosure'
 import {
     useAsync,
     useFunction,
@@ -28,6 +28,12 @@ export const wrap = value => {
     }
 
     return identity(value)
+}
+
+export const rescue = value => {
+    value = wrap(value)
+
+    return useRescue(value)
 }
 
 export const assign = (value, options) => {
