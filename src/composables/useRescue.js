@@ -13,7 +13,7 @@ export const useLastError = ({ error, rescue = true } = {}) => {
         return
     }
 
-    if (!quiet) {
+    if (!rescue) {
         throw error
     }
 
