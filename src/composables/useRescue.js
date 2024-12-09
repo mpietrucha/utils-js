@@ -4,8 +4,10 @@ export const useError = error => {
     return errors.push(error)
 }
 
-export const useLastError = (quiet = true) => {
-    const error = errors.pop()
+export const useLastError = ({ error, rescue = true } = {}) => {
+    error && useError(error)
+
+    error = errors.pop()
 
     if (!error) {
         return

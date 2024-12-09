@@ -1,7 +1,6 @@
 import * as Closure from '@/closure'
 import { useLastError } from '@/composables/useRescue'
 import { useIdentity, useRescue } from '@/composables/useValue'
-import * as Object from '@/object'
 
 export const identity = useIdentity
 
@@ -28,18 +27,16 @@ export const get = (value, ...parameters) => {
     return value
 }
 
-export const rescue = (value, ...parameters) => {
-    return useRescue(get, value, ...parameters)
+export const rescue = (...parameters) => {
+    return useRescue(get, ...parameters)
 }
 
-export const build = (value, options) => {
+export const build = (value, { tap, pipe = identity, ...options } = {}) => {
     value = assign(value, options)
 
-    const { tap, pipe = identity, quiet = false } = Object.wrap(options)
+    const response = rescue(value)
 
-    const response = rescue(get, value)
-
-    useLastError(quiet)
+    useLastError(options)
 
     get(tap, response)
 
