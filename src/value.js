@@ -35,11 +35,11 @@ export const rescue = (value, ...parameters) => {
 export const build = (value, options) => {
     value = assign(value, options)
 
-    const { tap, pipe = identity, rescue = false } = Object.wrap(options)
+    const { tap, pipe = identity, quiet = false } = Object.wrap(options)
 
     const response = rescue(get, value)
 
-    useLastError(rescue)
+    useLastError(quiet)
 
     get(tap, response)
 
