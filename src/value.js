@@ -32,7 +32,7 @@ export const rescue = (value, ...parameters) => {
     return useRescue(get, value, ...parameters)
 }
 
-export const build = () => {
+export const build = (value, options) => {
     value = assign(value, options)
 
     const { tap, pipe = identity, rescue = false } = Object.wrap(options)
