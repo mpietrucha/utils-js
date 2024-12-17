@@ -5,7 +5,7 @@ export const useError = error => {
 }
 
 export const useLastError = ({ rescue = true } = {}) => {
-    error = errors.pop()
+    const error = errors.pop()
 
     if (!error) {
         return

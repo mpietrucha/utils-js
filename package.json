@@ -1,6 +1,6 @@
 {
     "name": "@mpietrucha/utils",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "repository": "mpietrucha/utils-js",
     "license": "MIT",
     "author": {
@@ -22,6 +22,7 @@
     "prettier": "@mpietrucha/prettier-config",
     "devDependencies": {
         "@mpietrucha/prettier-config": "^0.0.11",
+        "@mpietrucha/vitest": "^0.0.2",
         "unbuild": "^2.0.0"
     }
 }
