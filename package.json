@@ -21,7 +21,7 @@
     ],
     "prettier": "@mpietrucha/prettier-config",
     "devDependencies": {
-        "@mpietrucha/prettier-config": "^0.0.11",
+        "@mpietrucha/prettier-config": "^0.0.12",
         "@mpietrucha/vitest": "^0.0.3",
         "unbuild": "^3.0.1"
     }
