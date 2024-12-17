@@ -1,9 +1,8 @@
 import * as Closure from '@/closure'
-import { useIdentity as identity, useRescue } from '@composables/useValue'
-
-export { identity }
+import { useRescue } from '@composables/useValue'
 
 export {
+    useIdentity as identity,
     useConfirm as confirm,
     useNegate as negate,
     useNoop as noop,

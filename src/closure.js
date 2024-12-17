@@ -7,14 +7,13 @@ import {
 } from '@/composables/useTag'
 import * as Object from '@/object'
 import {
-    useIdentity as identity,
+    useIdentity,
     useEqualsTag,
     useRescue,
 } from '@composables/useClosure'
 
-export { identity }
-
 export {
+    useIdentity as identity,
     useConfirm as confirm,
     useNegate as negate,
     useNoop as noop,
@@ -31,7 +30,7 @@ export const wrap = value => {
         return value
     }
 
-    return identity(value)
+    return useIdentity(value)
 }
 
 export const rescue = value => {
